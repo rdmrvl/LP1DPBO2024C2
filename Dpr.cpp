@@ -74,28 +74,30 @@ public:
         Dpr temp;
         cout << "Masukkan data anggota baru:" << '\n';
         cout << "ID: ";
-        cin >> id;
+        cin >> id;              //input id
         cout << "Nama: ";
-        cin >> name;
+        cin >> name;            //input nama
         cout << "Bidang: ";
-        cin >> bidang;
+        cin >> bidang;          //input bidang
         cout << "Partai: ";
-        cin >> partai;
+        cin >> partai;          //input partai
 
-        temp.set_id(id);
-        temp.set_name(name);
-        temp.set_bidang(bidang);
-        temp.set_partai(partai);
+        temp.set_id(id);            //set data yang sudah di input ke atribut id
+        temp.set_name(name);        //set data yang sudah di input ke atribut name
+        temp.set_bidang(bidang);    //set data yang sudah di input ke atribut bidang
+        temp.set_partai(partai);    //set data yang sudah di input ke atribut partai
 
-        llist.push_back(temp);
+        llist.push_back(temp);      //push kedalam list
     }
 
     // Method untuk menghapus anggota dari list berdasarkan ID
     void remove(list<Dpr>& llist, string id) {
-        for (auto it = llist.begin(); it != llist.end(); ++it) {
+        auto it = llist.begin();
+        while (it != llist.end()) {
             if (it->get_id() == id) {
-                llist.erase(it);
-                break;
+                it = llist.erase(it); // Hapus elemen dan perbarui iterator ke elemen berikutnya
+            } else {
+                ++it; // Lanjutkan ke elemen berikutnya
             }
         }
     }
@@ -105,21 +107,20 @@ public:
         for (auto it = llist.begin(); it != llist.end(); ++it) {
             if (it->get_id() == id) {
                 cout << "Masukkan data yang diperbarui:" << '\n';
+                string newId, newName, newBidang, newPartai;
                 cout << "ID: ";
-                cin >> id;
+                cin >> newId;
                 cout << "Nama: ";
-                cin >> name;
+                cin >> newName;
                 cout << "Bidang: ";
-                cin >> bidang;
+                cin >> newBidang;
                 cout << "Partai: ";
-                cin >> partai;
+                cin >> newPartai;
 
-                it->set_id(id);
-                it->set_name(name);
-                it->set_bidang(bidang);
-                it->set_partai(partai);
-
-                break;
+                it->set_id(newId);
+                it->set_name(newName);
+                it->set_bidang(newBidang);
+                it->set_partai(newPartai);
             }
         }
     }
@@ -139,7 +140,7 @@ public:
         }
     }
 
-    // Destruktor
+    // Destruktor untuk free alokasi memori
     ~Dpr() {
 
     }
