@@ -9,7 +9,6 @@ using namespace std;
 int main() {
     list<Dpr> llist; // List untuk menampung data dpr
     string id;
-    int i;
     int endProgram = 0;
     while (endProgram == 0) {
         system("cls"); // Clear terminal
@@ -70,6 +69,5 @@ int main() {
             }
         }
     }
-
     return 0;
 }
