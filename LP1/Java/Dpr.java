@@ -2,24 +2,64 @@
 Saya Marvel Ravindra Dioputra [2200481] LatPrak1 Java dalam Mata Kuliah DPBO 
 untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin.
 */
-import java.util.ArrayList; //library untuk implemenasi array list
+import java.util.ArrayList; //library untuk implementasi array list
 import java.util.List;      //library untuk linked list
 import java.util.Scanner;   //library untuk melakukan input (scanfnya lah)
 
 public class Dpr {
-    String id;          //atribut untuk menampung id
-    String name;        //atribut untuk menampung nama
-    String bidang;      //atribut untuk menampung bidang
-    String partai;      //atribut untuk menampung partai
+    private String id;          //atribut untuk menampung id
+    private String name;        //atribut untuk menampung nama
+    private String bidang;      //atribut untuk menampung bidang
+    private String partai;      //atribut untuk menampung partai
+
+    //konstruktor
+    public Dpr(String id, String name, String bidang, String partai) {
+        this.id = id;
+        this.name = name;
+        this.bidang = bidang;
+        this.partai = partai;
+    }
+
+    //getter dan setter
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBidang() {
+        return bidang;
+    }
+
+    public void setBidang(String bidang) {
+        this.bidang = bidang;
+    }
+
+    public String getPartai() {
+        return partai;
+    }
+
+    public void setPartai(String partai) {
+        this.partai = partai;
+    }
 
     public static void main(String[] args) {
         List<Dpr> llist = new ArrayList<>(); // List untuk menampung data dpr
-        String id;
         int endProgram = 0;
         Scanner scanner = new Scanner(System.in);
 
         while (endProgram == 0) {
-            clearScreen(); // Panggil method untuk membersihkan layar
+            clearScreen(); //method untuk membersihkan layar
 
             System.out.println("+--MENU-------------+");
             System.out.println("| 1. Tambah Anggota |");
@@ -31,7 +71,7 @@ public class Dpr {
             System.out.print("Pilih menu : ");
             int menu = scanner.nextInt();           //memilih inputan menggunakan scanner.nextInt
 
-            Dpr dpr = new Dpr();
+            Dpr dpr = new Dpr("", "", "", ""); // Instantiating Dpr object with empty values
             if (menu == 1) {
                 clearScreen();
                 dpr.showList(llist);
@@ -40,13 +80,13 @@ public class Dpr {
                 clearScreen();
                 dpr.showList(llist);
                 System.out.print("Masukkan ID anggota yang ingin diubah: ");
-                id = scanner.next();
+                String id = scanner.next();
                 dpr.update(llist, id);
             } else if (menu == 3) {
                 clearScreen();
                 dpr.showList(llist);
                 System.out.print("Masukkan ID anggota yang ingin dihapus: ");
-                id = scanner.next();
+                String id = scanner.next();
                 dpr.remove(llist, id);
             } else if (menu == 4) {
                 clearScreen();
@@ -79,38 +119,38 @@ public class Dpr {
     // Method untuk menambah anggota ke list
     public void add(List<Dpr> llist) {
         Scanner scanner = new Scanner(System.in);
-        Dpr temp = new Dpr();
         System.out.println("Masukkan data anggota baru:");
         System.out.print("ID: ");
-        temp.id = scanner.next();
+        String id = scanner.next();
         System.out.print("Nama: ");
-        temp.name = scanner.next();
+        String name = scanner.next();
         System.out.print("Bidang: ");
-        temp.bidang = scanner.next();
+        String bidang = scanner.next();
         System.out.print("Partai: ");
-        temp.partai = scanner.next();
+        String partai = scanner.next();
+        Dpr temp = new Dpr(id, name, bidang, partai); // Instantiating Dpr object with provided values
         llist.add(temp);
     }
 
     // Method untuk menghapus anggota dari list berdasarkan ID
     public void remove(List<Dpr> llist, String id) {
-        llist.removeIf(dpr -> dpr.id.equals(id));
+        llist.removeIf(dpr -> dpr.getId().equals(id));
     }
 
     // Method untuk mengupdate anggota dari list berdasarkan ID
     public void update(List<Dpr> llist, String id) {
         Scanner scanner = new Scanner(System.in);
         for (Dpr dpr : llist) {
-            if (dpr.id.equals(id)) {
+            if (dpr.getId().equals(id)) {
                 System.out.println("Masukkan data yang diperbarui:");
                 System.out.print("ID: ");
-                dpr.id = scanner.next();
+                dpr.setId(scanner.next());
                 System.out.print("Nama: ");
-                dpr.name = scanner.next();
+                dpr.setName(scanner.next());
                 System.out.print("Bidang: ");
-                dpr.bidang = scanner.next();
+                dpr.setBidang(scanner.next());
                 System.out.print("Partai: ");
-                dpr.partai = scanner.next();
+                dpr.setPartai(scanner.next());
             }
         }
     }
@@ -122,7 +162,7 @@ public class Dpr {
         } else {
             int i = 0;
             for (Dpr dpr : llist) {
-                System.out.println((i + 1) + ". " + dpr.id + "\t | " + dpr.name + "\t | " + dpr.bidang + "\t | " + dpr.partai);
+                System.out.println((i + 1) + ". " + dpr.getId() + "\t | " + dpr.getName() + "\t | " + dpr.getBidang() + "\t | " + dpr.getPartai());
                 i++;
             }
             System.out.println();
