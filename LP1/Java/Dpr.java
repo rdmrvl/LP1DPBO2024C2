@@ -71,7 +71,7 @@ public class Dpr {
             System.out.print("Pilih menu : ");
             int menu = scanner.nextInt();           //memilih inputan menggunakan scanner.nextInt
 
-            Dpr dpr = new Dpr("", "", "", ""); // Instantiating Dpr object with empty values
+            Dpr dpr = new Dpr("", "", "", ""); //Instansiasi
             if (menu == 1) {
                 clearScreen();
                 dpr.showList(llist);
