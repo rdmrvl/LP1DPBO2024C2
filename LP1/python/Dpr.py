@@ -1,7 +1,7 @@
 # /* 
 # Saya Marvel Ravindra Dioputra [2200481] LatPrak1 python dalam Mata Kuliah DPBO 
 # untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin
-# */
+# */,
 
 class Dpr:
     # Konstruktor
