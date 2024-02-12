@@ -1,6 +1,6 @@
 /* 
 Saya Marvel Ravindra Dioputra [2200481] LatPrak1 Java dalam Mata Kuliah DPBO 
-untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin.
+untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin
 */
 import java.util.ArrayList; //library untuk implementasi array list
 import java.util.List;      //library untuk linked list
