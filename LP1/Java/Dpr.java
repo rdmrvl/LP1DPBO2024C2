@@ -108,6 +108,7 @@ public class Dpr {
                 }
             }
         }
+        
     }
 
     // Method untuk membersihkan layar
@@ -130,6 +131,7 @@ public class Dpr {
         String partai = scanner.next();
         Dpr temp = new Dpr(id, name, bidang, partai); // Instantiating Dpr object with provided values
         llist.add(temp);
+        
     }
 
     // Method untuk menghapus anggota dari list berdasarkan ID
@@ -153,6 +155,7 @@ public class Dpr {
                 dpr.setPartai(scanner.next());
             }
         }
+        
     }
 
     // Method untuk menampilkan list anggota
@@ -160,12 +163,15 @@ public class Dpr {
         if (llist.isEmpty()) {
             System.out.println("List Anggota DPR Kosong.");
         } else {
-            int i = 0;
+            System.out.println("+----+--------------+--------------+--------------+--------------+");
+            System.out.println("| No |     ID       |     Nama     |    Bidang    |    Partai    |");
+            System.out.println("+----+--------------+--------------+--------------+--------------+");
+            int i = 1;
             for (Dpr dpr : llist) {
-                System.out.println((i + 1) + ". " + dpr.getId() + "\t | " + dpr.getName() + "\t | " + dpr.getBidang() + "\t | " + dpr.getPartai());
+                System.out.printf("| %-2d | %-12s | %-12s | %-12s | %-12s |\n", i, dpr.getId(), dpr.getName(), dpr.getBidang(), dpr.getPartai());
                 i++;
             }
-            System.out.println();
+            System.out.println("+----+--------------+--------------+--------------+--------------+");
         }
     }
 }
