@@ -3,15 +3,15 @@
 # untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin
 # */
 
-# import file class
+# Import kelas Dpr dari file Dpr.py
 from Dpr import Dpr
-
-# import os untuk clear screen
 import os
 
+# Fungsi untuk membersihkan layar
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+# Fungsi untuk menambahkan anggota baru ke dalam list
 def add(llist):
     print("Masukkan data anggota baru:")
     id = input("ID: ")
@@ -21,9 +21,11 @@ def add(llist):
     temp = Dpr(id, name, bidang, partai)
     llist.append(temp)
 
+# Fungsi untuk menghapus anggota dari list berdasarkan ID
 def remove(llist, id):
     llist[:] = [dpr for dpr in llist if dpr.get_id() != id]
 
+# Fungsi untuk mengupdate anggota dari list berdasarkan ID
 def update(llist, id):
     for dpr in llist:
         if dpr.get_id() == id:
@@ -33,6 +35,7 @@ def update(llist, id):
             dpr.set_bidang(input("Bidang: "))
             dpr.set_partai(input("Partai: "))
 
+# Fungsi untuk menampilkan list anggota
 def show_list(llist):
     if not llist:
         print("List Anggota DPR Kosong.")
@@ -44,8 +47,9 @@ def show_list(llist):
             print(f"| {i:2d} | {dpr.get_id():<12s} | {dpr.get_name():<12s} | {dpr.get_bidang():<12s} | {dpr.get_partai():<12s} |")
         print("+----+--------------+--------------+--------------+--------------+")
 
+# Fungsi utama
 if __name__ == "__main__":
-    llist = []
+    llist = []  # List untuk menampung data anggota DPR
     end_program = 0
 
     while end_program == 0:
@@ -89,3 +93,4 @@ if __name__ == "__main__":
 
             if list_option == 2:
                 end_program = 1
+
